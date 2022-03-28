@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb}
 
-\title{Graph theory homework, task 2}
+\title{Task 2}
 \author{Vladislav Hober}
 \date{}
 \begin{document}
@@ -20,9 +20,9 @@ It's a contradiction. Consequently, for any connected graph
 \section{Tree}
 G is a connected graph. Let's consider 2 cases.
 \begin{itemize}
-  \item \begin{math} |E| < |V| - 1 \end{math}.
+  \item \begin{math} |E| < |V| - 1 \end{math}.\newline
   Then some vertices will not have edges. So, the graph will not be connected. It is a contradiction.
-  \item \begin{math} |E| > |V| - 1 \end{math}. G is a connected graph. So, \begin{math}|V|-1\end{math} edges should connect all vertices. There is no cycles in a graph because with \begin{math}|V|-1\end{math}  we can create only a one path between all \begin{math}|V|\end{math} vertices. So, if we add more than \begin{math}|V|-1\end{math} edges, we will create a new path. Two different paths between vertices would create a cycle. We would get a cyclic graph.
+  \item \begin{math} |E| > |V| - 1 \end{math}.\newline G is a connected graph. So, \begin{math}|V|-1\end{math} edges should connect all vertices. There is no cycles in a graph because with \begin{math}|V|-1\end{math}  we can create only a one path between all \begin{math}|V|\end{math} vertices. So, if we add more than \begin{math}|V|-1\end{math} edges, we will create a new path. Two different paths between vertices would create a cycle. We would get a cyclic graph.
 \end{itemize}
  Consequently, a connected graph with only \begin{math}|V|-1\end{math} edges would be acyclic, would be a tree.
 \section{Whitney}
@@ -30,13 +30,26 @@ Let be \begin{math}\varkappa(G) = n\end{math},
 \begin{math}\lambda(G) = m \end{math},
 \begin{math}\delta(G) = q \end{math}.
 \begin{itemize}
-  \item Let's assume that \begin{math} n > q \end{math}. But if some vertex has q as a minimum degree, we can just remove q vertices to disconnect graph. So, \begin{math}\varkappa(G)\end{math} equals at least q. We came to contradiction. Consequently, \begin{math} n \leq q \end{math}.
-  \item Let's assume that \begin{math} m > q \end{math}. But if some vertex has at least q edges, we can just remove q edges to disconnect graph. So, \begin{math}\lambda(G)\end{math} equals at least q. We came to contradiction. Consequently, \begin{math} m \leq q \end{math}
+  \item Let's assume that \begin{math} n > q \end{math}.\newline But if some vertex has q as a minimum degree, we can just remove q vertices to disconnect graph. So, \begin{math}\varkappa(G)\end{math} equals at least q. We came to contradiction. Consequently, \begin{math} n \leq q \end{math}.
+  \item Let's assume that \begin{math} m > q \end{math}.\newline But if some vertex has at least q edges, we can just remove q edges to disconnect graph. So, \begin{math}\lambda(G)\end{math} equals at least q. We came to contradiction. Consequently, \begin{math} m \leq q \end{math}
 \end{itemize}
 In conclusion, \begin{math} \varkappa(G) \leq \lambda(G) \leq \delta(G)\end{math}
 
 \section{Chartrand}
+Let's prove by induction. It's a correct statement for graphs that consist 1, 2 or 3 vertices. Assume that this statement is correct for a graph with n vertices. Let's prove that this statement also is correct for a graph with (n+1) vertices.\newline A new vertex of a graph must have \begin{math}|V/2|\end{math} or more edges. Besides, only removing all new edges can disconnect a graph because it has already been connected by previous edges. So, if we add a new vertex, we won't be able to get better answer for \begin{math}\lambda(G)\end{math}.Consequently,  \begin{math}\delta(G) = \lambda(G) \end{math} for a graph with (n+1) vertices.
+\section{Menger}
+Let's assume that the size of the minimum vertex cut does not equal to the maximum number of pairwise internally vertex-disjoint paths between some vertices v and u. Consider 2 cases.
+\begin{itemize}
+  \item The size of the minimum vertex cut is less than the maximum number of paths.\newline
+  So, the number of vertices we must delete to disconnect a graph is less than the number of paths. But paths are pairwise internally vertex-disjoint. Consequently, to "destroy" all paths between v and u we must remove at least a vertex from every path. We came to contradiction. The size of vertex cut couldn't be less than the maximum number of paths.
+  \item The size of the minimum vertex cut is larger than the maximum number of paths.\newline
+  Removing one vertex from every pairwise internally vertex-disjoint paths is enough to "destroy" all paths between v and u and disconnect a graph. So, vertex cut is not minimum. We came to contradiction.  
+\end{itemize}
+In conclusion, the size of the minimum vertex cut equal to the maximum number of pairwise internally vertex-disjoint paths between some vertices v and u.
 
+\section{Harary}
+A block of a block graph always has two vertex-disjoint paths between vertices (definition of 2-vertex-connectivity). Assume that some vertices of a block are not connected. But it couldn't be true because they have a path between them. So, they have same vertex cut. They should be connected. \newline
+Consequently, all of vertices of a block of a block graph are connected. It is a clique.
 
 
 \end{document}
