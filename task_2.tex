@@ -18,13 +18,15 @@ It's a contradiction. Consequently, for any connected graph
 \begin{math}dist(x, z) \leq dist(x, y) + dist(y, z)\end{math}.
 
 \section{Tree}
-G is a connected graph. Let's consider 2 cases.
+Connected graph G is a tree. Let's consider 2 cases.
 \begin{itemize}
   \item \begin{math} |E| < |V| - 1 \end{math}.\newline
   Then some vertices will not have edges. So, the graph will not be connected. It is a contradiction.
   \item \begin{math} |E| > |V| - 1 \end{math}.\newline G is a connected graph. So, \begin{math}|V|-1\end{math} edges should connect all vertices. There is no cycles in a graph because with \begin{math}|V|-1\end{math}  we can create only a one path between all \begin{math}|V|\end{math} vertices. So, if we add more than \begin{math}|V|-1\end{math} edges, we will create a new path. Two different paths between vertices would create a cycle. We would get a cyclic graph.
 \end{itemize}
- Consequently, a connected graph with only \begin{math}|V|-1\end{math} edges would be acyclic, would be a tree.
+ Consequently, if a connected graph is a tree, it will have \begin{math} |E| = |V| - 1 \end{math} edges.\newline
+ If a graph has \begin{math} |E| = |V| - 1 \end{math} edges, it will be connected. Moreover, it couldn't have any cycles. So, it would be a tree.
+
 \section{Whitney}
 Let be \begin{math}\varkappa(G) = n\end{math},
 \begin{math}\lambda(G) = m \end{math},
